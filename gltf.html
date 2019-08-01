@@ -14,12 +14,22 @@
         </a-assets>
 
         <a-anchor hit-testing-enabled='true'>
-            <a-entity gltf-model="#headrest"></a-entity>
+            <a-entity gltf-model="#headrest" id="naut"></a-entity>
         </a-anchor>
 
         <!-- Define a static camera -->
         <a-camera-static />
     </a-scene>
 </body>
+<script>
+    console.log('got el', naut);
+    const update = () => {
+        naut.object3D.rotation.x += 0.1;
+        naut.object3D.rotation.y += 0.1;
+        naut.object3D.rotation.z += 0.1;
+        setTimeout(() => requestAnimationFrame(update), 50);
+    }
+    requestAnimationFrame(update);
+</script>
 
 </html>
